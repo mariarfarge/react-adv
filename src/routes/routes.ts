@@ -1,4 +1,4 @@
-import { lazy, LazyExoticComponent } from "react";
+import { lazy, LazyExoticComponent } from 'react';
 
 type JSXComponent = () => JSX.Element;
 
@@ -16,13 +16,13 @@ const Lazy3 = lazy(() => import(/* webpackChunkName: "LazyPage3" */ '../01-lazyl
 export const routes: Route[] = [
     {
         to: '/lazy1',
-        path:'lazy1',
+        path: 'lazy1',
         Component: Lazy1,
-        name:'Lazy-1'
+        name: 'Lazy-1'
     },
     {
         to: '/lazy2',
-        path:'lazy2',
+        path: 'lazy2',
         Component: Lazy2,
         name: 'Lazy-2'
     },

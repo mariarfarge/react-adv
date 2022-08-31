@@ -1,8 +1,9 @@
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  NavLink
+  NavLink,
+  Navigate
 } from 'react-router-dom';
 import { routes } from './routes';
 
@@ -20,7 +21,7 @@ export const Navigation = () => {
               { 
                 routes.map((({to, name}) =>               
                   <li key={ to } >
-                    <NavLink to={to} activeClassName="nav-active" exact>
+                    <NavLink to={to} className={({isActive}) => isActive ? 'nav-active' : ''}>
                       { name }
                     </NavLink>
                   </li>
@@ -31,15 +32,14 @@ export const Navigation = () => {
 
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
-          <Switch>
+          <Routes>
             {
-              routes.map( ({to, Component}) => (
-                <Route key = { to } path={to}>
-                  <Component/>         
-                </Route>
+              routes.map( ({to, path, Component}) => (
+                <Route key = { to } path={ path } element = { <Component/> }/>
               ))
             }
-          </Switch>
+            <Route path="/*" element = { <Navigate to={routes[1].to} replace /> }/>
+          </Routes>
         </div>
       </Router>
     </Suspense>

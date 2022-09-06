@@ -1,8 +1,3 @@
-// import { ProductButtons } from "../components/ProductButtons"
-// import { ProductCard } from "../components/ProductCard"
-// import { ProductImage } from "../components/ProductImage"
-// import { ProductTitle } from "../components/ProductTitle"
-
 import ProductCard, { ProductButtons, ProductImage, ProductTitle } from "../components"
 
 const product = {
